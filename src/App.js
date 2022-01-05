@@ -9,6 +9,7 @@ import {
 import Rockets from './components/Rockets';
 import Missions from './components/Missions';
 import MyProfile from './components/MyProfile';
+import Logo from './logo_small.png';
 
 function App() {
   const activeStyle = {
@@ -19,17 +20,24 @@ function App() {
     <Router>
       <>
         <div className="container mt-5">
-          <div className="btn-group">
-            <NavLink to="/" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-              Rockets
-            </NavLink>
-            <NavLink to="/Missions" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-              Missions
-            </NavLink>
-            <NavLink to="/MyProfile" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-              MyProfile
-            </NavLink>
+          <div className="d-flex justify-content-between">
+            <div className="btn-group ">
+              <img src={Logo} alt="Planet Logo" height="40" className="" />
+              <h1>Space Travelers&apos; Hub</h1>
+            </div>
+            <div className="btn-group ">
+              <NavLink to="/" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                Rockets
+              </NavLink>
+              <NavLink to="/Missions" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                Missions
+              </NavLink>
+              <NavLink to="/MyProfile" className="nav-link" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                MyProfile
+              </NavLink>
+            </div>
           </div>
+
           <hr />
           <Routes>
             <Route path="/MyProfile" element={<MyProfile />} />

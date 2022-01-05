@@ -10,20 +10,28 @@ const Missions = () => {
   }, []);
 
   return (
-    <div className="">
-      Lista de Missions
-      <ul>
+    <table className="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Mission</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
         {
           missions.map((item) => (
-            <li key={item.id}>
-              {item.id}
-              {item.name}
-              {item.description}
-            </li>
+            <tr key={item.id}>
+              <td className="col-1">{item.name}</td>
+              <td className="col-7">{item.description}</td>
+              <td className="col-2"><button type="button" className="btn btn-secondary btn-sm">NOT A MEMBER</button></td>
+              <td className="col-2"><button type="button" className="btn btn-outline-secondary btn-sm">Join Mission</button></td>
+            </tr>
           ))
         }
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 };
 
