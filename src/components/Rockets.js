@@ -30,22 +30,26 @@ const Rockets = () => {
 
   return (
     <div className="">
-      lista de rockets
-      <ul>
+      <div>
         {
           rockets.map((item) => (
-            <li key={item.id}>
-              {item.id}
-              {' '}
-              {item.name}
-              {item.description}
-              {item.type}
-              {item.image}
-            </li>
+            <div className="card mb-3 border-0" key={item.id}>
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={item.image} className="img-fluid rounded-start" alt="..." />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{item.name}</h5>
+                    <p className="card-text">{item.description}</p>
+                    <a href="http://localhost:3000/" className="btn btn-primary">Reserve Rocket</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))
         }
-
-      </ul>
+      </div>
     </div>
   );
 };
