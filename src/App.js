@@ -22,7 +22,7 @@ function App() {
         <div className="container mt-5">
           <div className="d-flex justify-content-between">
             <div className="btn-group ">
-              <img src={Logo} alt="Planet Logo" height="40" />
+              <img src={Logo} alt="Planet Logo" height="40" className="" />
               <h1>Space Travelers&apos; Hub</h1>
             </div>
             <div className="btn-group ">
