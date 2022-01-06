@@ -13,15 +13,25 @@ const MyProfile = () => {
       <div className="container">
         <div className="row align-items-start">
           <div className="col-6 text-center">
-            My Rockets
-            {rocketsBooked.map((rocket) => (
-              <h3 key={rocket.id}>{rocket.name}</h3>
+            <h2>My Missions</h2>
+            {missionsBooked.map((mission) => (
+              <div className="card text-white bg-success mb-3" key={mission.id}>
+                <div className="card-header">{mission.name}</div>
+                <div className="card-body">
+                  <p className="card-text text-truncate">{mission.description}</p>
+                </div>
+              </div>
             ))}
           </div>
           <div className="col-6 text-center">
-            My Missions
-            {missionsBooked.map((mission) => (
-              <h3 key={mission.id}>{mission.name}</h3>
+            <h2>My Rockets</h2>
+            {rocketsBooked.map((rocket) => (
+              <div className="card text-white bg-info mb-3" key={rocket.id}>
+                <div className="card-header">{rocket.name}</div>
+                <div className="card-body">
+                  <p className="card-text text-truncate">{rocket.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
