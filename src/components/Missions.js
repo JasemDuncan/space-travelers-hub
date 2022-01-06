@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMissions } from '../redux/missions/missions';
+import { Button, Badge } from 'react-bootstrap';
+import { getMissions, toggleMission } from '../redux/missions/missions';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -8,6 +9,10 @@ const Missions = () => {
   useEffect(() => {
     if (missions.length === 0) dispatch(getMissions());
   }, []);
+
+  const statusToggle = (id) => {
+    dispatch(toggleMission(id));
+  };
 
   return (
     <table className="table table-bordered">
@@ -25,8 +30,24 @@ const Missions = () => {
             <tr key={item.id}>
               <td className="col-1">{item.name}</td>
               <td className="col-7">{item.description}</td>
-              <td className="col-2"><button type="button" className="btn btn-secondary btn-sm">NOT A MEMBER</button></td>
-              <td className="col-2"><button type="button" className="btn btn-outline-secondary btn-sm">Join Mission</button></td>
+              <td className="col-2">
+                <Badge
+                  bg={item.status ? 'info' : 'secondary'}
+                >
+                  {item.status ? 'Active Member' : 'NOT A MEMBER'}
+                </Badge>
+              </td>
+              <td className="col-2">
+                <Button
+                  variant={item.status ? 'outline-danger' : 'outline-secondary'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    statusToggle(item.id);
+                  }}
+                >
+                  {item.status ? 'Leave Mission' : 'Join Mission' }
+                </Button>
+              </td>
             </tr>
           ))
         }
