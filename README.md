@@ -2,7 +2,7 @@
 
 # Space Travelers' Hub
 
-This website will display a list of rockets, missions and reservations.
+Space Travelers Hub: Use SpaceX API, where users can book each rocket by clicking the reservation button or canceling a previous booking, the same is for a mission where users can join a mission by clicking the join mission button or cancel it. My Profile displays all reserved rockets and space missions.
 
 ![](./screenShoot.png)
 ![](./screenShoot1.png)
