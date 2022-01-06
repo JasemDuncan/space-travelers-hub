@@ -5,6 +5,9 @@ const MyProfile = () => {
   const allRockets = useSelector((state) => state.rocketsReducer);
   const rocketsBooked = allRockets.filter((rocket) => rocket.status);
 
+  const allMissions = useSelector((state) => state.missionsReducer);
+  const missionsBooked = allMissions.filter((mission) => mission.status);
+
   return (
     <>
       <div className="container">
@@ -17,6 +20,9 @@ const MyProfile = () => {
           </div>
           <div className="col-6 text-center">
             My Missions
+            {missionsBooked.map((mission) => (
+              <h3 key={mission.id}>{mission.name}</h3>
+            ))}
           </div>
         </div>
       </div>
