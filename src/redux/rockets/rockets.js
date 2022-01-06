@@ -10,7 +10,7 @@ const initialState = [];
 // acciones
 export const getRockets = () => async (dispatch) => {
   const result = await axios(url);
-  const rockets = result.data;  
+  const rockets = result.data;
   const fetchedRockets = [];
 
   rockets.forEach((rocket) => {
