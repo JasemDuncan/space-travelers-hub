@@ -1,25 +1,11 @@
 import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRockets } from '../redux/rockets/rockets';
-
-// const Rocket = (props) => {
-//   const { id, name, type } = props;
-
-//   return (
-//     <h4>
-//       {name}
-//       {id}
-//       {type}
-//     </h4>
-//   );
-// };
-
-// Rocket.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   type: PropTypes.bool.isRequired,
-// };
+import {
+  Badge,
+  Button,
+} from 'react-bootstrap';
+import { getRockets, toggleRockets } from '../redux/rockets/rockets';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -27,6 +13,10 @@ const Rockets = () => {
   useEffect(() => {
     if (rockets.length === 0) dispatch(getRockets());
   }, []);
+
+  const statusToggle = (id) => {
+    dispatch(toggleRockets(id));
+  };
 
   return (
     <div className="">
@@ -41,8 +31,24 @@ const Rockets = () => {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
-                    <p className="card-text">{item.description}</p>
-                    <a href="http://localhost:3000/" className="btn btn-primary">Reserve Rocket</a>
+                    <p className="card-text">
+                      <Badge
+                        bg={item.status ? 'btn btn-info ' : ''}
+                      >
+                        {item.status ? 'Reserved' : ''}
+                      </Badge>
+                      {item.description}
+                    </p>
+                    <p className="card-text">{item.status}</p>
+                    <Button
+                      variant={item.status ? 'outline-danger' : 'primary'}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        statusToggle(item.id);
+                      }}
+                    >
+                      {item.status ? 'Cancel Reservation' : 'Reserve Rocket'}
+                    </Button>
                   </div>
                 </div>
               </div>
