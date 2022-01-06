@@ -12,11 +12,8 @@ const rootReducer = combineReducers({
   missionsReducer,
 });
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const store = createStore(
-  rootReducer,
-  // applyMiddleware(logger, thunk),
+  rootReducer,  
   composeWithDevTools(applyMiddleware(logger, thunk)),
 );
 
