@@ -1,31 +1,31 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# space-travelers-hub
+# Space Travelers' Hub
 
 This website will display a list of rockets, missions and reservations.
 
 ![](./screenShoot.png)
+![](./screenShoot1.png)
+![](./screenShoot2.png)
 
-## Live Version
-Under construction
 
 ## Built With
 
 - HTML&CSS
 - Javascript
-- React
+- React & Redux
 
 ## Getting Started
 To get a local copy up and running follow these simple steps.
 
-### Setup
- 
+## Setup 
 
 ### Install
 - Open your console and change the current working directory into the destination for this project.
 - Type `git clone git@github.com:JasemDuncan/space-travelers-hub.git`
-- Type Enter to finish the installation process.
-- Run command in terminal: npm start
+- Run this command in terminal: `npm install`
+- Run this command in terminal: `npm start`
+- Go in your browser to: http://localhost:3000/
 
 ## Authors
 
